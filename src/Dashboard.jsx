@@ -17,23 +17,23 @@ import { API_ENDPOINT } from './Api';
 
 function Dashboard() {
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true); // Loading state
+    const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
-    // Verify if User is in session in localStorage
+
     useEffect(() => {
         const fetchDecodedUserID = async () => {
             try {
                 const token = localStorage.getItem('token');
-                console.log('Fetched token:', token); // Debugging token
+                console.log('Fetched token:', token);
                 if (!token) {
                     throw new Error('No token found');
                 }
                 const response = JSON.parse(token);
                 const decoded_token = jwtDecode(response.token);
-                console.log('Decoded token:', decoded_token); // Debugging decoded token
+                console.log('Decoded token:', decoded_token);
                 setUser(decoded_token);
-                setLoading(false); // Update loading state
+                setLoading(false);
             } catch (error) {
                 console.error('Token parsing error:', error);
                 navigate('/login');
@@ -54,22 +54,22 @@ function Dashboard() {
     };
 
     if (loading) {
-        return <div>Loading...</div>; // Show loading until the user is fetched
+        return <div>Loading...</div>;
     }
 
     return (
         <>
-            {/* Set body background to black */}
             <style>
                 {`
                     body {
                         background-color: black;
                         color: white;
+                        font-family: 'Tahoma', sans-serif;
                     }
                 `}
             </style>
 
-            {/* Orange header */}
+
             <Navbar style={{ backgroundColor: 'orange' }} variant="dark">
                 <Container>
                     <Navbar.Brand href="#home" style={{ color: 'black' }}>Naga College Foundation, Inc.</Navbar.Brand>

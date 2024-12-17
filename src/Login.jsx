@@ -17,14 +17,14 @@ function Login() {
 
     const [user, setUser] = useState(null);
 
-    // Verify if User is already logged in
+    
     useEffect(() => {
         const fetchUser = async () => {
             try {
                 const token = localStorage.getItem('token');
                 if (token) {
                     const response = JSON.parse(token);
-                    console.log('User token from localStorage:', response);  // Debugging the token
+                    console.log('User token from localStorage:', response);
                     setUser(response?.data);
                     navigate("/dashboard");
                 }
@@ -36,7 +36,7 @@ function Login() {
         fetchUser();
     }, [navigate]);
 
-    // Login state management
+   
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -62,32 +62,30 @@ function Login() {
 
     return (
         <>
-            { }
-            <Navbar style={{ backgroundColor: '#FF6600' }} variant="dark">
+            <Navbar style={{ backgroundColor: '#FF6600', fontFamily: 'Tahoma' }} variant="dark">
                 <Container>
                     <Navbar.Brand href="#home">
-                      
                     </Navbar.Brand>
                 </Container>
             </Navbar>
 
             {/* Black body background */}
-            <div style={{ backgroundColor: '#111', color: '#fff', minHeight: '100vh', paddingTop: '5%' }}>
+            <div style={{ backgroundColor: '#111', color: '#fff', minHeight: '100vh', paddingTop: '5%', fontFamily: 'Tahoma' }}>
                 <Container>
                     <Row className="justify-content-md-center">
                         <Col md={4}>
                             <div className="login-form">
                                 <div className="container">
                                     <center>
-                                    <h2 style={{ fontSize: '30px' }}>Enrollment System</h2>
+                                    <h2 style={{ fontSize: '30px', fontFamily: 'Tahoma' }}>Enrollment System</h2>
                                     </center>
-                                    <h2 style={{ fontSize: '18px' }}>Please Log In to proceed</h2>
+                                    <h2 style={{ fontSize: '18px', fontFamily: 'Tahoma' }}>Please Log In to proceed</h2>
                                     &nbsp;
-                                    <div className="card" style={{ backgroundColor: '#222', color: '#fff' }}>
+                                    <div className="card" style={{ backgroundColor: '#222', color: '#fff', fontFamily: 'Tahoma' }}>
                                         <div className="card-body login-card-body">
                                             <Form onSubmit={handleSubmit}>
                                                 <Form.Group controlId="formUsername">
-                                                    <Form.Label>Username</Form.Label>
+                                                    <Form.Label style={{ fontFamily: 'Segoe UI' }}>Username</Form.Label>
                                                     <Form.Control
                                                         className="form-control-sm rounded-pill"
                                                         type="text"
@@ -101,13 +99,14 @@ function Login() {
                                                             border: '1px solid #FF6600',
                                                             borderRadius: '25px',
                                                             paddingLeft: '15px',
+                                                            fontFamily: 'Tahoma',
                                                         }}
                                                     />
                                                 </Form.Group>
                                                 <br />
 
                                                 <Form.Group controlId="formPassword">
-                                                    <Form.Label>Password</Form.Label>
+                                                    <Form.Label style={{ fontFamily: 'Segoe UI' }}>Password</Form.Label>
                                                     <Form.Control
                                                         className="form-control-sm rounded-pill"
                                                         type="password"
@@ -121,13 +120,14 @@ function Login() {
                                                             border: '1px solid #FF6600',
                                                             borderRadius: '25px',
                                                             paddingLeft: '15px',
+                                                            fontFamily: 'Tahoma',
                                                         }}
                                                     />
                                                 </Form.Group>
                                                 <br />
 
                                                 <Form.Group controlId="formButton">
-                                                    {error && <p style={{ color: 'red' }}>{error}</p>}
+                                                    {error && <p style={{ color: 'red', fontFamily: 'Tahoma' }}>{error}</p>}
                                                     <Button
                                                         variant="warning"
                                                         className="btn btn-block rounded-pill"
@@ -141,6 +141,7 @@ function Login() {
                                                             padding: '12px 20px',
                                                             fontSize: '16px',
                                                             borderRadius: '25px',
+                                                            fontFamily: 'Tahoma',
                                                         }}
                                                     >
                                                         Log In
